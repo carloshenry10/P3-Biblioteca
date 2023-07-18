@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 import { Livro } from 'src/app/models/Livro';
 import { LivroServiceService } from 'src/app/service/LivroService.service';
 
@@ -14,7 +15,8 @@ export class LivroDetalhesComponent implements OnInit {
 
   constructor(
     public livroService: LivroServiceService,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private toastr: ToastrService
   ) {}
 
   ngOnInit() {
@@ -28,5 +30,13 @@ export class LivroDetalhesComponent implements OnInit {
   public carregaLivro() {
     this.livroRetorno = this.livroService.livroById(this.livroId);
   }
+
+  reservarLivro(livro: Livro) {
+    livro.volumeInfo.reservado = !livro.volumeInfo.reservado; // Atualiza o valor da propriedade "reservado" para true
+    let mensagem = livro.volumeInfo.title + ' reservado com sucesso';
+    this.toastr.success(mensagem, 'Sucesso');
+  }
+
+
 
 }
