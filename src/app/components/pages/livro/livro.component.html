@@ -1,0 +1,77 @@
+
+
+<div class="cards-container">
+  <section id="featured-books">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+          <div class="section-header align-center">
+            <div class="title">
+              <span>Busque Conhecimento</span>
+            </div>
+            <h2 class="section-title">Buscar Livros</h2>
+
+            <div class="search-container">
+              <div class="search-wrapper">
+                <input type="text"
+                       [value]="termoBusca"
+                       (input)="atualizarTermoBusca($event)"
+                       class="search-input"
+                       placeholder=" Digite um livro para busca"
+                />
+                <button (click)="buscarLivros()" class="search-button">
+                  <i class="icon icon-search"></i>
+                </button>
+              </div>
+            </div>
+
+          </div>
+
+          <div class="product-list aos-init aos-animate" data-aos="fade-up">
+            <div class="row">
+              <div class="col-md-3" *ngFor="let livro of livros">
+                <figure class="product-style">
+                  <ng-container *ngIf="livro.volumeInfo.imageLinks && livro.volumeInfo.imageLinks.thumbnail">
+                    <img [src]="livro.volumeInfo.imageLinks.thumbnail" alt="Books" class="product-item size-image" />
+                  </ng-container>
+                  <ng-container *ngIf="!livro.volumeInfo.imageLinks || !livro.volumeInfo.imageLinks.thumbnail">
+                    <img src="assets/images/noImage.jpg" alt="Books" class="product-item size-image" />
+                  </ng-container>
+                  <button type="button" class="add-to-cart bg-info" data-product-tile="add-to-cart"
+                  [ngClass]="{'bg-danger': livro.volumeInfo.reservado}"
+                  [routerLink]="['/livro', livro.id]">
+                  {{ livro.volumeInfo.reservado ? 'Reservado' : 'Disponível' }}
+                </button>
+
+                  <figcaption>
+                    <h3>{{ livro.volumeInfo.title }}</h3>
+                    <p>{{ livro.volumeInfo.authors }}</p>
+
+                    <p style="font-size: small;margin-bottom: 2px;">Qnt de Páginas</p>
+                    <div class="item-price">{{ livro.volumeInfo.pageCount }}</div>
+                  </figcaption>
+                </figure>
+              </div>
+            </div>
+            <!--ft-books-slider-->
+          </div>
+
+          <!--grid-->
+        </div>
+        <!--inner-content-->
+      </div>
+
+      <!-- <div class="row">
+        <div class="col-md-12">
+          <div class="btn-wrap align-right">
+            <a href="#" class="btn-accent-arrow"
+              >View all products <i class="icon icon-ns-arrow-right"></i
+            ></a>
+          </div>
+        </div>
+      </div> -->
+    </div>
+  </section>
+</div>
+
+<router-outlet></router-outlet>

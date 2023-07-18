@@ -1,0 +1,29 @@
+<div class="container">
+  <div class="row">
+
+    <div class="col-md-6">
+      <a href="#" class="product-image">
+        <img [src]="livroRetorno!.volumeInfo.imageLinks.thumbnail" style="width: 300px;height:  400px;">
+      </a>
+    </div>
+
+    <div class="col-md-6 pl-5">
+      <div class="product-detail">
+        <h1>{{livroRetorno!.volumeInfo.title}}</h1>
+        <p>{{livroRetorno!.volumeInfo.authors}}</p>
+        <span class="price colored">Quantidade de Páginas {{livroRetorno!.volumeInfo.pageCount}}</span>
+        <br>
+        <p>
+          {{livroRetorno!.volumeInfo.description}}
+        </p>
+        <br>
+
+        <button type="submit" name="add-to-cart" value="27545" class="button">Reservar</button>
+
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<router-outlet></router-outlet>
