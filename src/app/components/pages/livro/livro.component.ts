@@ -17,16 +17,18 @@ export class LivroComponent {
     this.termoBusca = event.target.value;
   }
 
-  buscarLivros() {
+  public buscarLivros() {
     if (this.termoBusca) {
       this.livroService.searchBooks(this.termoBusca)
-        .then(livros => {
-          this.livros = livros;
+        .then(l => {
+          this.livros = l.filter(lf => lf.volumeInfo.title.toLowerCase()
+                         .includes(this.termoBusca!.toLowerCase()));
         })
         .catch(error => {
           console.error('Erro ao buscar livros:', error);
         });
     }
   }
+
 
 }

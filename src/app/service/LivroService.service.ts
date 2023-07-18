@@ -61,4 +61,10 @@ livroById(id: string): Livro | undefined {
   return this.livros.find(livro => livro.id === id);
 }
 
+GetAllLivros(): Livro[]
+{
+  return this.livros;
+}
+
+
 }

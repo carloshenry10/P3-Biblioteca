@@ -4,6 +4,7 @@ import { LivroComponent } from './components/pages/livro/livro.component';
 import { ContatoComponent } from './components/pages/contato/contato.component';
 import { LivroDetalhesComponent } from './components/pages/livro-detalhes/livro-detalhes.component';
 import { PrincipalComponent } from './components/pages/principal/principal.component';
+import { LivrosReservadosComponent } from './components/pages/livros-reservados/livros-reservados.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' },
@@ -11,6 +12,8 @@ const routes: Routes = [
   { path: 'principal', component: PrincipalComponent },
   { path: 'livro', component: LivroComponent },
   { path: 'livro/:id', component: LivroDetalhesComponent },
+  { path: 'livrosReservados', component: LivrosReservadosComponent },
+
   { path: 'contato', component: ContatoComponent },
 ];
 

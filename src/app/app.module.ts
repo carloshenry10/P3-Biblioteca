@@ -16,6 +16,7 @@ import { ToastrModule } from 'ngx-toastr';
 import { FooterComponent } from './shared/footer/footer.component';
 import { CarrosselComponent } from './shared/carrossel/carrossel.component';
 import { PrincipalComponent } from './components/pages/principal/principal.component';
+import { LivrosReservadosComponent } from './components/pages/livros-reservados/livros-reservados.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import { PrincipalComponent } from './components/pages/principal/principal.compo
     LivroDetalhesComponent,
     FooterComponent,
     CarrosselComponent,
-    PrincipalComponent
+    PrincipalComponent,
+    LivrosReservadosComponent
   ],
   imports: [
     BrowserModule,
